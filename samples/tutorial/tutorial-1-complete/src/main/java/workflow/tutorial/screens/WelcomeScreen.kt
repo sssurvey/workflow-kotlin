@@ -1,4 +1,4 @@
-package workflow.tutorial
+package workflow.tutorial.screens
 
 data class WelcomeScreen(
   /** The current name that has been entered. */

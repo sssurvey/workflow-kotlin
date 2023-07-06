@@ -1,10 +1,11 @@
-package workflow.tutorial
+package workflow.tutorial.workflows
 
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
-import workflow.tutorial.WelcomeWorkflow.Output
-import workflow.tutorial.WelcomeWorkflow.State
+import workflow.tutorial.workflows.WelcomeWorkflow.Output
+import workflow.tutorial.workflows.WelcomeWorkflow.State
+import workflow.tutorial.screens.WelcomeScreen
 
 object WelcomeWorkflow : StatefulWorkflow<Unit, State, Output, WelcomeScreen>() {
 

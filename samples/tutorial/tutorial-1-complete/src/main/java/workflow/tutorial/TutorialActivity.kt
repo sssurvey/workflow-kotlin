@@ -13,6 +13,9 @@ import com.squareup.workflow1.ui.WorkflowLayout
 import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
 import com.squareup.workflow1.ui.renderWorkflowIn
 import kotlinx.coroutines.flow.StateFlow
+import workflow.tutorial.layoutrunners.WelcomeLayoutRunner
+import workflow.tutorial.screens.WelcomeScreen
+import workflow.tutorial.workflows.WelcomeWorkflow
 
 // This doesn't look like much right now, but we'll add more layout runners shortly.
 private val viewRegistry = ViewRegistry(WelcomeLayoutRunner)

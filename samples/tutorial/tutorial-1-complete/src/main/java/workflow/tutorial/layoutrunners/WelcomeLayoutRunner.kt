@@ -1,4 +1,4 @@
-package workflow.tutorial
+package workflow.tutorial.layoutrunners
 
 import com.squareup.workflow1.ui.LayoutRunner
 import com.squareup.workflow1.ui.LayoutRunner.Companion.bind
@@ -7,6 +7,7 @@ import com.squareup.workflow1.ui.ViewFactory
 import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
 import com.squareup.workflow1.ui.setTextChangedListener
 import com.squareup.workflow1.ui.updateText
+import workflow.tutorial.screens.WelcomeScreen
 import workflow.tutorial.views.databinding.WelcomeViewBinding
 
 @OptIn(WorkflowUiExperimentalApi::class)
