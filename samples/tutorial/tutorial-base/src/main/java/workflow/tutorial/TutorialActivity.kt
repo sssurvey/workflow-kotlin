@@ -7,9 +7,6 @@ import com.squareup.workflow1.ui.ViewRegistry
 import com.squareup.workflow1.ui.WorkflowLayout
 import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
 import com.squareup.workflow1.ui.backstack.BackStackContainer
-import workflow.tutorial.runners.TodoEditScreenLayoutRunner
-import workflow.tutorial.runners.TodoListScreenLayoutRunner
-import workflow.tutorial.runners.WelcomeScreenLayoutRunner
 import workflow.tutorial.viewmodels.TutorialViewModel
 
 @OptIn(WorkflowUiExperimentalApi::class)
@@ -29,10 +26,7 @@ class TutorialActivity : AppCompatActivity() {
 
   companion object {
     private val viewRegistry = ViewRegistry(
-      BackStackContainer,
-      WelcomeScreenLayoutRunner,
-      TodoListScreenLayoutRunner,
-      TodoEditScreenLayoutRunner
+      BackStackContainer
     )
   }
 }
