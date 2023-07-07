@@ -3,11 +3,14 @@ package workflow.tutorial.workflows.todo
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
+import com.squareup.workflow1.ui.Screen
+import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
 import workflow.tutorial.workflows.todo.TodoWorkflow.Back
 import workflow.tutorial.workflows.todo.TodoWorkflow.Props
 import workflow.tutorial.workflows.todo.TodoWorkflow.State
 
-object TodoWorkflow : StatefulWorkflow<Props, State, Back, List<Any>>() {
+@OptIn(WorkflowUiExperimentalApi::class)
+object TodoWorkflow : StatefulWorkflow<Props, State, Back, List<Screen>>() {
 
   data class TodoItem(
     val title: String,
@@ -40,9 +43,9 @@ object TodoWorkflow : StatefulWorkflow<Props, State, Back, List<Any>>() {
     renderProps: Props,
     renderState: State,
     context: RenderContext
-  ): List<Any> {
+  ): List<Screen> {
 
-    val backStack = mutableListOf<Any>()
+    val backStack = mutableListOf<Screen>()
     val todoListScreen = context.renderChild(
       TodoListWorkflow,
       TodoListWorkflow.Props(username = renderProps.username, todoItems = renderState.todoList)

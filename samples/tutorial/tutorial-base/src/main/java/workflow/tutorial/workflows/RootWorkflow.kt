@@ -4,18 +4,19 @@ import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
 import com.squareup.workflow1.renderChild
+import com.squareup.workflow1.ui.Screen
 import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
-import com.squareup.workflow1.ui.backstack.BackStackScreen
-import com.squareup.workflow1.ui.backstack.toBackStackScreen
+import com.squareup.workflow1.ui.container.BackStackScreen
+import com.squareup.workflow1.ui.container.toBackStackScreen
 import workflow.tutorial.screens.WelcomeScreen
 import workflow.tutorial.workflows.RootWorkflow.State
 import workflow.tutorial.workflows.RootWorkflow.State.Todo
 import workflow.tutorial.workflows.RootWorkflow.State.Welcome
-import workflow.tutorial.workflows.todo.TodoWorkflow.Back
 import workflow.tutorial.workflows.todo.TodoWorkflow
+import workflow.tutorial.workflows.todo.TodoWorkflow.Back
 
 @OptIn(WorkflowUiExperimentalApi::class)
-object RootWorkflow : StatefulWorkflow<Unit, State, Nothing, BackStackScreen<Any>>() {
+object RootWorkflow : StatefulWorkflow<Unit, State, Nothing, BackStackScreen<Screen>>() {
 
   private const val TAG = "RootWorkflow"
 
@@ -37,9 +38,9 @@ object RootWorkflow : StatefulWorkflow<Unit, State, Nothing, BackStackScreen<Any
     renderProps: Unit,
     renderState: State,
     context: RenderContext
-  ): BackStackScreen<Any> {
+  ): BackStackScreen<Screen> {
 
-    val backStackScreen = mutableListOf<Any>()
+    val backStackScreen = mutableListOf<Screen>()
 
     backStackScreen.add(renderWelcomeWorkflow(context))
 
@@ -66,7 +67,7 @@ object RootWorkflow : StatefulWorkflow<Unit, State, Nothing, BackStackScreen<Any
     }
   }
 
-  private fun  renderTodoWorkflow(context: RenderContext, renderState: Todo): List<Any> {
+  private fun renderTodoWorkflow(context: RenderContext, renderState: Todo): List<Screen> {
     return context.renderChild(
       TodoWorkflow,
       TodoWorkflow.Props(username = renderState.username) // This param, is prop for child

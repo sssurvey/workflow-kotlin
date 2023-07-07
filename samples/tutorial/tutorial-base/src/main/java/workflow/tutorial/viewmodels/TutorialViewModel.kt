@@ -4,8 +4,9 @@ import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.squareup.workflow1.ui.Screen
 import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
-import com.squareup.workflow1.ui.backstack.BackStackScreen
+import com.squareup.workflow1.ui.container.BackStackScreen
 import com.squareup.workflow1.ui.renderWorkflowIn
 import kotlinx.coroutines.flow.StateFlow
 import workflow.tutorial.workflows.RootWorkflow
@@ -13,7 +14,7 @@ import workflow.tutorial.workflows.RootWorkflow
 @OptIn(WorkflowUiExperimentalApi::class)
 class TutorialViewModel(savedStateHandle: SavedStateHandle): ViewModel() {
 
-  val rootRender: StateFlow<BackStackScreen<Any>> by lazy {
+  val rootRender: StateFlow<BackStackScreen<Screen>> by lazy {
     renderWorkflowIn(
       RootWorkflow,
       viewModelScope,

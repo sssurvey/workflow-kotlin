@@ -3,6 +3,7 @@ package workflow.tutorial.workflows.todo
 import com.squareup.workflow1.WorkflowOutput
 import com.squareup.workflow1.testing.expectWorkflow
 import com.squareup.workflow1.testing.testRender
+import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
 import junit.framework.TestCase.assertTrue
 import org.junit.Test
 import workflow.tutorial.screens.TodoEditScreen
@@ -10,6 +11,7 @@ import workflow.tutorial.screens.TodoListScreen
 import workflow.tutorial.workflows.todo.TodoWorkflow.TodoItem
 import kotlin.test.assertEquals
 
+@OptIn(WorkflowUiExperimentalApi::class)
 internal class TodoWorkflowTest {
 
   @Test

@@ -19,14 +19,10 @@ class TutorialActivity : AppCompatActivity() {
     tutorialViewModel.hello()
     setContentView(
       WorkflowLayout(this).apply {
-        start(tutorialViewModel.rootRender, viewRegistry)
+        take(lifecycle, tutorialViewModel.rootRender)
+        // start(tutorialViewModel.rootRender, viewRegistry)
       }
     )
   }
 
-  companion object {
-    private val viewRegistry = ViewRegistry(
-      BackStackContainer
-    )
-  }
 }
